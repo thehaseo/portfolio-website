@@ -7,8 +7,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 django_heroku.settings(locals())
 
 MEDIA_ROOT = BASE_DIR / 'uploads'
