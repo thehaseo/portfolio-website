@@ -1,7 +1,9 @@
 from .base import *
+from os import getenv
 import django_heroku
 import cloudinary
 import cloudinary_storage
+
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
