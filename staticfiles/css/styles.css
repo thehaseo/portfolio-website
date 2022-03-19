@@ -1,0 +1,172 @@
+body {
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+#header-carousel {
+    height: 38rem;
+}
+
+
+/* navbar menu */
+#sections-list {
+    background-color: rgba(22, 114, 57, 0.993);
+}
+
+#sections-list li:hover {
+    background-color: rgb(17, 156, 70);
+}
+
+#navbar-menu {
+    z-index: 1;
+}
+
+#language-options > a {
+    color: white;
+}
+
+#language-options > a:hover, #language-options > a:active {
+    display: inline-block;
+    transform: scale(1.2);
+}
+
+
+/* Portfolio section */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+    column-gap: 2rem;
+    row-gap: 2rem;
+    justify-content: center;
+}
+
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-wrapper > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
+#project-image {
+    object-fit: fill;
+}
+
+.project-content {
+    position: absolute;
+    inset: 0;
+    font-size: 2rem;
+    padding: 3rem 3rem 0rem 3rem;
+    background: #4e4e4e60;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.project-link {
+    color: #36e900;
+}
+
+.project-link:hover {
+    transform: scale(1.1);
+    color: #3bfc00;
+}
+
+.img-wrapper > img,
+.img-wrapper > .project-content {
+    transition: 200ms ease-in-out;
+}
+
+.img-wrapper:hover > img.blur {
+    filter: blur(5px)
+}
+
+.img-wrapper > .project-content.fade {
+    opacity: 0;
+}
+
+.img-wrapper:hover > .project-content.fade {
+    opacity: 1;
+}
+
+
+/* Skillset section */
+#skills {
+    margin-top: 7rem;
+    margin-bottom: 6rem;
+}
+
+.grid-skillset {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 10rem));
+    justify-content: space-around;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+#skillset-image-field {
+    background-color: rgba(1, 95, 1, 0.8);
+}
+
+
+/* Media animation preferences for navbar menu delay */
+@media (prefers-reduced-motion: reduce) {
+    .collapsing {
+        transition-property: height, visibility;
+        transition-duration: .5s;
+    }
+}
+
+/*Media queries */
+
+@media only screen and (max-width: 1100px) {
+    #footer-meta {
+        font-size: 0.75rem;
+    }
+
+    #phone-number {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media only screen and (max-width: 920px) {
+    #footer-meta {
+        font-size: 0.7rem;
+    }
+
+    #phone-number {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media only screen and (max-width: 550px) {
+    #navbar-menu-title {
+        font-size: 0.9rem;
+    }
+
+    #language-options {
+        font-size: 0.9rem;
+    }
+
+    #footer-meta {
+        font-size: 0.7rem;
+    }
+}
