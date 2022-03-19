@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+{% block titulo %}Gregori Azuaje | desarrollador web backend{% endblock titulo %}
+
+{% block navbar_menu_work %}Desarrollador backend Django{% endblock navbar_menu_work %}
+
+{% block navbar_about %}Sobre mí{% endblock navbar_about %}
+
+{% block navbar_portfolio %}Portafolio{% endblock navbar_portfolio %}
+
+{% block navbar_skills %}Habilidades{% endblock navbar_skills %}
+
+{% block navbar_contact %}Contacto{% endblock navbar_contact %}
+
+{% block about_header %}Sobre mí{% endblock about_header %}
+
+{% block about_info_header %}Desarrollador backend Django y programador software con Python{% endblock about_info_header %}
+
+{% block about_info %}
+Soy un crypto-trader y programador con más de 1 año de experiencia programando en Python y actualmente dedicado
+al desarrollo web a través de Django, mi área principal en el desarrollo web está enfocada en el backend de momento,
+sin embargo también poseo algunos conocimientos en CSS3 y Javascript lo que me permite crear animaciones simples
+pero funcionales en el front-end.<br>
+Mi objetivo principal es especializarme en el lenguaje de programación python, sin embargo ya que soy un amante 
+de la programación en si misma estoy más que dispuesto a aprender y trabajar con cualquier otra tecnología que
+me permita crecer en el campo del desarrollo web y desarrollo de software
+{% endblock about_info %}
+
+{% block portfolio_header %}Portafolio{% endblock portfolio_header %}
+
+{% block techs_used_text %}Tecnologías usadas:{% endblock techs_used_text %}
+
+{% block project_link_text %}Ir al sitio{% endblock project_link_text %}
+
+{% block skillset_header %}Habilidades{% endblock skillset_header %}
+
+{% block contact_header %}Contacto{% endblock contact_header %}
+
+{% block contact_form %}
+<form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
+    {% include "main_page/includes/contact_form.html" with form=contact_form lan='es' %}
+</form>
+{% endblock contact_form %}
+
+{% block footer_span %}Diseñado y desarrollado por Gregori Azuaje Cabanerio &copy;2022. Todos los derechos reservados{% endblock footer_span %}
+
+{% block form_submit_ajax_validation %}
+<script>
+    $('#contact-form').on('submit', function(e) {
+        $('#form-button').addClass('disabled');
+        e.preventDefault();
+      
+        $.ajax({
+          type : 'POST',
+          url : '{% url "main_page:main_page_view" "es" %}',
+          data: {
+              name: $("#id_name").val(),
+              email: $('#id_email').val(),
+              message: $('#id_message').val(),
+              csrfmiddlewaretoken: '{{ csrf_token }}',
+              dataType: "json"
+          },
+          success: function(result, status, xhr){
+            
+            $('#contact-form').html(result.form_html)
+            $("#form-send-output").html("Tu mensaje ha sido enviado, me pondré en contacto contigo lo más pronto posible")
+            .addClass("text-success fs-5");
+          },
+          error: function(xhr, status, error){
+            $("#contact-form").html(xhr.responseJSON.form_html)
+            console.log(xhr)
+            console.log(status)
+            console.log(error)
+            $("#form-send-output").html("Ha habido un problema al enviar tus mensajes, por favor revisa que todos los campos estén llenos y vuelve a intentar")
+            .addClass("text-danger fs-5")
+          }
+        });
+      });
+</script>
+{% endblock form_submit_ajax_validation %}
