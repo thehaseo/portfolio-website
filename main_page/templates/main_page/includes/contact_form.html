@@ -1,11 +1,13 @@
 {% load crispy_forms_tags %}
 
 
-{% csrf_token %}
-{{ form|crispy }}
-<div id="form-send-output"></div>
-{% if lan == 'es' %}   
-    <button type=submit class="btn btn-success my-3" id="form-button">Enviar mensaje</button>
-{% else %}
-    <button type=submit class="btn btn-success my-3" id="form-button">Send message</button>
-{% endif %}
+<form action="{% url 'main_page:main_page_view' lan %}" class="needs-validation" method="POST" id="contact-form">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div id="form-send-output"></div>
+    {% if lan == 'es' %}   
+        <button type=submit class="btn btn-success my-3" id="form-button">Enviar mensaje</button>
+    {% else %}
+        <button type=submit class="btn btn-success my-3" id="form-button">Send message</button>
+    {% endif %}
+</form>

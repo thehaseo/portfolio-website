@@ -134,9 +134,7 @@
                 <h2 class="text-center text-success">{% block contact_header %}Contact{% endblock contact_header %}</h2>
                 <div class="container">
                     {% block contact_form %}
-                    <form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
-                        {% include "main_page/includes/contact_form.html" with form=contact_form %}
-                    </form>
+                        {% include "main_page/includes/contact_form.html" with form=contact_form lan='en' %}
                     {% endblock contact_form %}
                 </div>
             </section>
@@ -153,7 +151,7 @@
                     <img src="{% static 'images/twitter-icon.png' %}" alt="twitter-icon-link">
                 </a>
                 <span class="mx-2 my-2 d-inline-block">
-                    <a href="https://wa.link/ky2km9" class="mx-1">
+                    <a href="https://wa.link/ky2km9">
                         <img src="{% static 'images/whatsapp-icon.png' %}" alt="whatsapp-icon">
                         <span id="phone-number" class="text-white align-self-center">+58-412-2023643</span>
                     </a>
