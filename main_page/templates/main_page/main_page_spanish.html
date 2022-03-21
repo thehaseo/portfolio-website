@@ -37,8 +37,12 @@ me permita crecer en el campo del desarrollo web y desarrollo de software
 {% block contact_header %}Contacto{% endblock contact_header %}
 
 {% block contact_form %}
-{% include "main_page/includes/contact_form.html" with form=contact_form lan='es' %}
-{% endblock contact_form %}
+<form action="{% url 'main_page:main_page_view' lan %}" class="needs-validation" method="POST">
+  {{ csrf_token }}
+  <div id="contact-form">
+      {% include "main_page/includes/contact_form.html" with form=contact_form lan='es' %}
+  </div>
+</form>{% endblock contact_form %}
 
 {% block footer_span %}Diseñado y desarrollado por Gregori Azuaje Cabanerio &copy;2022. Todos los derechos reservados{% endblock footer_span %}
 

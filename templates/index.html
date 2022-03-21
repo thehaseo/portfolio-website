@@ -134,7 +134,12 @@
                 <h2 class="text-center text-success">{% block contact_header %}Contact{% endblock contact_header %}</h2>
                 <div class="container">
                     {% block contact_form %}
-                        {% include "main_page/includes/contact_form.html" with form=contact_form lan='en' %}
+                    <form action="{% url 'main_page:main_page_view' lan %}" class="needs-validation" method="POST">
+                        {{ csrf_token }}
+                        <div id="contact-form">
+                            {% include "main_page/includes/contact_form.html" with form=contact_form lan='en' %}
+                        </div>
+                    </form>
                     {% endblock contact_form %}
                 </div>
             </section>
