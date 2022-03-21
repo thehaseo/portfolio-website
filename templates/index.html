@@ -199,10 +199,7 @@
                     .addClass("text-success fs-5");
                   },
                   error: function(xhr, status, error){
-                    $("#contact-form").html(xhr.responseJSON.form_html)
-                    console.log(xhr)
-                    console.log(status)
-                    console.log(error)
+                    $("#form_fields").html(xhr.responseJSON.form_html)
                     $("#form-send-output").html("There was a problem sending your message, please check you have filled all the fields and try again")
                     .addClass("text-danger fs-5")
                   }
