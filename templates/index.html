@@ -136,9 +136,7 @@
                     {% block contact_form %}
                     <form action="{% url 'main_page:main_page_view' lan %}" class="needs-validation" method="POST">
                         {{ csrf_token }}
-                        <div id="contact-form">
-                            {% include "main_page/includes/contact_form.html" with form=contact_form lan='en' %}
-                        </div>
+                        {% include "main_page/includes/contact_form.html" with form=contact_form lan='en' %}
                     </form>
                     {% endblock contact_form %}
                 </div>
