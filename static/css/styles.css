@@ -125,6 +125,12 @@ h2 {
 }
 
 
+/*Contact form */
+#id_message {
+    resize: none;
+}
+
+
 /* Media animation preferences for navbar menu delay */
 @media (prefers-reduced-motion: reduce) {
     .collapsing {
