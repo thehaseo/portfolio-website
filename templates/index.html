@@ -135,8 +135,8 @@
                 <div class="container">
                     {% block contact_form %}
                     <form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" >
-                        {% csrf_token %}
                         <div id="contact-form">
+                            {% csrf_token %}
                             {% include "main_page/includes/contact_form.html" with form=contact_form %}
                         </div>
                     </form>
