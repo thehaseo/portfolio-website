@@ -37,9 +37,9 @@ me permita crecer en el campo del desarrollo web y desarrollo de software
 {% block contact_header %}Contacto{% endblock contact_header %}
 
 {% block contact_form %}
-<form action="{% url 'main_page:main_page_view' 'es' %}" class="needs-validation" method="POST" >
-  <div id="contact-form">
-      {% csrf_token %}
+<form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
+  {% csrf_token %}
+  <div id="form_fields">
       {% include "main_page/includes/contact_form.html" with form=contact_form %}
   </div>
 </form>
@@ -64,8 +64,7 @@ me permita crecer en el campo del desarrollo web y desarrollo de software
               dataType: "json"
           },
           success: function(result, status, xhr){
-            
-            $('#contact-form').html(result.form_html)
+            $('#form_fields').html(result.form_html)
             $("#form-send-output").html("Tu mensaje ha sido enviado, me pondré en contacto contigo lo más pronto posible")
             .addClass("text-success fs-5");
           },

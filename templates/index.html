@@ -134,9 +134,9 @@
                 <h2 class="text-center text-success">{% block contact_header %}Contact{% endblock contact_header %}</h2>
                 <div class="container">
                     {% block contact_form %}
-                    <form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" >
-                        <div id="contact-form">
-                            {% csrf_token %}
+                    <form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
+                        {% csrf_token %}
+                        <div id="form_fields">
                             {% include "main_page/includes/contact_form.html" with form=contact_form %}
                         </div>
                     </form>
@@ -194,8 +194,7 @@
                       dataType: "json"
                   },
                   success: function(result, status, xhr){
-                    
-                    $('#contact-form').html(result.form_html)
+                    $('#form_fields').html(result.form_html)
                     $("#form-send-output").html("Your message has been sent, I will be contacting to your email as soon as I can")
                     .addClass("text-success fs-5");
                   },
