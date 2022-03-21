@@ -45,8 +45,9 @@ class MainPageView(View):
         response_data = {
             'error': 'error',
             'message': 'Form invalid',
-            'form_html': render_to_string('main_page/includes/contact.html', {'form': form})
+            'form_html': render_to_string('main_page/includes/contact_form.html', {'form': form})
         }
         response = JsonResponse(response_data)
         response.status_code = 403 # The message couln't be published and return error to ajax code with form data
+        print(response)
         return response
