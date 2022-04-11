@@ -28,8 +28,39 @@ h2 {
     background-color: rgb(17, 156, 70);
 }
 
-#navbar-menu {
-    z-index: 1;
+#navbar-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(9, [col] auto);
+}
+
+#navbar-menu-title {
+    margin-left: 1.5rem;
+    grid-column: col / span 3;
+    align-self: center;
+}
+
+.menu-section {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: white
+}
+
+.menu-section:hover {
+    background-color: rgb(17, 156, 70);
+    color: white
+}
+
+#menu-nav-btn {
+    display: none
+}
+
+#language-options {
+    grid-column: span 2;
+    text-align: end;
+    margin-right: 1.5rem;
+    align-self: center;
 }
 
 #language-options > a {
@@ -40,7 +71,6 @@ h2 {
     display: inline-block;
     transform: scale(1.2);
 }
-
 
 /* Portfolio section */
 .grid {
@@ -162,6 +192,26 @@ h2 {
     }
 }
 
+@media only screen and (max-width: 850px) {
+    .menu-section {
+        display: none;
+    }
+
+    #navbar-menu-grid {
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+
+    #language-options {
+        grid-column: span 5;
+    }
+
+    #menu-nav-btn {
+        display: inline;
+        margin-right: 1rem;
+        justify-self: end;
+    }
+}
 
 @media only screen and (max-width: 550px) {
     #navbar-menu-title {

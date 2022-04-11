@@ -41,18 +41,21 @@
                 </div>
             </div>
         </header>
-        <nav id="navbar-menu" class="container-fluid position-sticky top-0 px-0">
-            <div class="bg-success d-flex justify-content-between shadow py-2 w-100">
-                <div id="navbar-menu-title" class="ms-3 text-white align-self-center flex-grow-1">
+        <nav id="navbar-menu" class="container-fluid shadow p-0 sticky-top">
+            <div id="navbar-menu-grid" class="bg-success">
+                <div id="navbar-menu-title" class="text-white">
                     Gregori Azuaje Cabanerio | <small>{% block navbar_menu_work %}Django backend developer{% endblock navbar_menu_work %}</small>
                 </div>
-                <div class="align-self-center me-3" id="language-options">
+                <a href="#about" class="menu-section">About</a>
+                <a href="#portfolio" class="menu-section">Portfolio</a>
+                <a href="#skills" class="menu-section">Skills</a>
+                <a href="#contact" class="menu-section">Contact</a>
+                <div id="language-options">
                     <a href="{% url "main_page:main_page_view" "en" %}">EN</a>
                     <span class="text-white">|</span>
                     <a href="{% url "main_page:main_page_view" "es" %}">ES</a>
                 </div>
-                <button id="menu-nav-btn" class="btn btn-success me-2" data-bs-toggle="collapse" data-bs-target="#sections-list"
-                aria-expanded=false>&#x2630</button>
+                <button id="menu-nav-btn" class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#sections-list" aria-expanded=false>&#x2630</button>
             </div>
             <ul id="sections-list" class="container-fluid collapse">
                 <a href="#about" class="text-white"><li class="py-2 w-100 text-center">{% block navbar_about %}About{% endblock navbar_about %}</li></a>
@@ -158,7 +161,7 @@
                 <span class="mx-2 my-2 d-inline-block">
                     <a href="https://wa.link/ky2km9">
                         <img src="{% static 'images/whatsapp-icon.png' %}" alt="whatsapp-icon">
-                        <span id="phone-number" class="text-white align-self-center">+58-412-2023643</span>
+                        <span id="phone-number" class="text-white ">+58-412-2023643</span>
                     </a>
                 </span>
             </nav>
