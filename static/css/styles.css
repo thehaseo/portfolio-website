@@ -1,5 +1,9 @@
 body {
-    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Serif', serif;
 }
 
 a {
@@ -15,19 +19,11 @@ h2 {
 }
 
 #header-carousel {
-    height: 38rem;
+    height: 30rem;
 }
 
 
 /* navbar menu */
-#sections-list {
-    background-color: rgba(22, 114, 57, 0.993);
-}
-
-#sections-list li:hover {
-    background-color: rgb(17, 156, 70);
-}
-
 #navbar-menu-grid {
     display: grid;
     grid-template-columns: repeat(9, [col] auto);
@@ -70,6 +66,14 @@ h2 {
 #language-options > a:hover, #language-options > a:active {
     display: inline-block;
     transform: scale(1.2);
+}
+
+#sections-list {
+    background-color: rgba(22, 114, 57, 0.993);
+}
+
+#sections-list li:hover {
+    background-color: rgb(17, 156, 70);
 }
 
 /* Portfolio section */
@@ -202,6 +206,10 @@ h2 {
         padding-bottom: 0.3rem;
     }
 
+    #navbar-menu-title {
+        font-size: 0.8rem;
+    }
+
     #language-options {
         grid-column: span 5;
     }
@@ -214,9 +222,6 @@ h2 {
 }
 
 @media only screen and (max-width: 550px) {
-    #navbar-menu-title {
-        font-size: 0.9rem;
-    }
 
     #language-options {
         font-size: 0.9rem;
