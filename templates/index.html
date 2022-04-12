@@ -92,21 +92,23 @@
             <section id="portfolio">
                 <h2 class="text-center my-5 py-5 text-success">{% block portfolio_header %}Portfolio{% endblock portfolio_header %}</h2>
                 <div class="container">
-                    <div class="grid">
+                    <div class="portfolio-grid">
                         {% for project in projects %}
-                        <div class="img-wrapper">
-                            <img src="{{ project.project_image.url }}" alt="project-image" class="rounded blur" id="project-image">
-                            <div class="project-content fade text-center">
-                                <p class="text-center text-white h1">{{ project.name }}</p>
-                                <a href="{{ project.link }}" class="d-block mt-3 project-link" target="_blank"><strong>{% block project_link_text %}Go to website{% endblock project_link_text %}</strong></a>
+                        <div>
+                            <div class="img-wrapper">
+                                <img src="{{ project.project_image.url }}" alt="project-image" class="rounded blur" id="project-image">
+                                <div class="project-content fade text-center">
+                                    <p class="text-center text-white h1">{{ project.name }}</p>
+                                    <a href="{{ project.link }}" class="d-block mt-3 project-link" target="_blank"><strong>{% block project_link_text %}Go to website{% endblock project_link_text %}</strong></a>
+                                </div>
                             </div>
+                            <p class="py-0 text-center h4"><strong>
+                                {% block techs_used_text %}Technologies used:{% endblock techs_used_text %}</strong>
+                                {% for technology in project.technologies.all %}
+                                    <span class="badge rounded-pill bg-success">{{ technology.name }}</span>
+                                {% endfor %}
+                            </p>
                         </div>
-                        <p class="py-0 text-center h4"><strong>
-                            {% block techs_used_text %}Technologies used:{% endblock techs_used_text %}</strong>
-                            {% for technology in project.technologies.all %}
-                                <span class="badge rounded-pill bg-success">{{ technology.name }}</span>
-                            {% endfor %}
-                        </p>
                         {% endfor %}
                     </div>
                 </div>  
