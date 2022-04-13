@@ -7,12 +7,9 @@ from .models import Projects
 from .forms import ReceivedMessagesForm, ReceivedMessagesSpanishForm
 # Create your views here.
 
-def redirect_main_english(request):
-    return redirect('main_page:main_page_view', 'en')
-
-
 class MainPageView(View):
-    def get(self, request, language):
+    def get(self, request):
+        language = request.GET.get('lan') if request.GET.get('lan') else 'en'
         if language == 'es':
             context = {
                 'projects': Projects.objects.all(),
@@ -26,7 +23,8 @@ class MainPageView(View):
             }
             return render(request, 'index.html', context)
     
-    def post(self, request, language):
+    def post(self, request):
+        language = request.GET.get('lan') if request.GET.get('lan') else 'en'
         if language == 'es':
             form = ReceivedMessagesSpanishForm(request.POST)
         else:

@@ -52,9 +52,9 @@
                 <a href="#skills" class="menu-section">{% block navbar_skills_expanded %}Skills{% endblock navbar_skills_expanded %}</a>
                 <a href="#contact" class="menu-section">{% block navbar_contact_expanded %}Contact{% endblock navbar_contact_expanded %}</a>
                 <div id="language-options">
-                    <a href="{% url "main_page:main_page_view" "en" %}">EN</a>
+                    <a href="{% url "main_page:main_page_view"%}?lan=en">EN</a>
                     <span class="text-white">|</span>
-                    <a href="{% url "main_page:main_page_view" "es" %}">ES</a>
+                    <a href="{% url "main_page:main_page_view" %}?lan=es">ES</a>
                 </div>
                 <button id="menu-nav-btn" class="btn btn-success" data-bs-toggle="collapse" data-bs-target="#sections-list" aria-expanded=false>&#x2630</button>
             </div>
@@ -77,10 +77,10 @@
                         <h3 class="text-center text-white mt-3">{% block about_info_header %}Django backend developer and python software programmer{% endblock about_info_header %}</h3>
                         <p class="text-white mt-5 fs-5">
                             {% block about_info %}
-                            I am a crypto-trader and programmer with 1+ years of experience programming in Python and
+                            I am a programmer and crypto trader with 1+ years of experience programming in Python and
                             currently dedicated to web development through Django, my main area of experience in web development right
-                            now is focused in backend, however I also possess a bit of knowledge in CSS3 and Javascript
-                            which allows me to create simple but functional animations in front-end.<br>
+                            now is focused in backend, however I also possess some knowledge in CSS3 and Javascript.<br><br>
+
                             My main goal is to be specialized in python programming language however since I'm a lover 
                             of programming itself I am more than open to learn and work with any other technologies 
                             which allow me to grow in the field of web development and software development.
@@ -142,7 +142,7 @@
                 <h2 class="text-center text-success">{% block contact_header %}Contact{% endblock contact_header %}</h2>
                 <div class="container">
                     {% block contact_form %}
-                    <form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
+                    <form action="{% url 'main_page:main_page_view'%}?lan=en" class="needs-validation" method="POST" id="contact-form">
                         {% csrf_token %}
                         <div id="form_fields">
                             {% include "main_page/includes/contact_form.html" with form=contact_form %}
@@ -193,7 +193,7 @@
               
                 $.ajax({
                   type : 'POST',
-                  url : '{% url "main_page:main_page_view" "en" %}',
+                  url : '{% url "main_page:main_page_view" %}?lan=en',
                   data: {
                       name: $("#id_name").val(),
                       email: $('#id_email').val(),

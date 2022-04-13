@@ -25,10 +25,10 @@
 {% block about_info_header %}Desarrollador backend Django y programador software con Python{% endblock about_info_header %}
 
 {% block about_info %}
-Soy un crypto-trader y programador con más de 1 año de experiencia programando en Python y actualmente dedicado
+Soy un programador y crypto trader con más de 1 año de experiencia programando en Python y actualmente dedicado
 al desarrollo web a través de Django, mi área principal en el desarrollo web está enfocada en el backend de momento,
-sin embargo también poseo algunos conocimientos en CSS3 y Javascript lo que me permite crear animaciones simples
-pero funcionales en el front-end.<br>
+sin embargo también poseo algunos conocimientos en CSS3 y Javascript<br><br>
+
 Mi objetivo principal es especializarme en el lenguaje de programación python, sin embargo ya que soy un amante 
 de la programación en si misma estoy más que dispuesto a aprender y trabajar con cualquier otra tecnología que
 me permita crecer en el campo del desarrollo web y desarrollo de software
@@ -45,7 +45,7 @@ me permita crecer en el campo del desarrollo web y desarrollo de software
 {% block contact_header %}Contacto{% endblock contact_header %}
 
 {% block contact_form %}
-<form action="{% url 'main_page:main_page_view' 'en' %}" class="needs-validation" method="POST" id="contact-form">
+<form action="{% url 'main_page:main_page_view'%}?lan=es" class="needs-validation" method="POST" id="contact-form">
   {% csrf_token %}
   <div id="form_fields">
       {% include "main_page/includes/contact_form.html" with form=contact_form %}
@@ -63,7 +63,7 @@ me permita crecer en el campo del desarrollo web y desarrollo de software
       
         $.ajax({
           type : 'POST',
-          url : '{% url "main_page:main_page_view" "es" %}',
+          url : '{% url "main_page:main_page_view"%}?lan=es',
           data: {
               name: $("#id_name").val(),
               email: $('#id_email').val(),
