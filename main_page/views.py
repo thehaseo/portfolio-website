@@ -1,15 +1,17 @@
-from django.shortcuts import render, redirect
-from django.urls.base import reverse
-from django.views.generic import View, TemplateView
-from django.http import JsonResponse
+import mimetypes
+import os
+from django.shortcuts import render
+from django.views.generic import View
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
+from django.templatetags.static import static
 from .models import Projects
 from .forms import ReceivedMessagesForm, ReceivedMessagesSpanishForm
 # Create your views here.
 
 class MainPageView(View):
     def get(self, request):
-        language = request.GET.get('lan') if request.GET.get('lan') else 'en'
+        language = request.GET.get('lan') if request.GET.get('lan') else 'es'
         if language == 'es':
             context = {
                 'projects': Projects.objects.all(),
@@ -49,3 +51,17 @@ class MainPageView(View):
         response.status_code = 403 # The message couln't be published and return error to ajax code with form data
         print(response)
         return response
+
+
+def download_cv(request):
+    language = request.GET.get('lan')
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    filename = 'CV-Gregori-Azuaje-Cabanerio-english.pdf' if language == 'en' else 'CV-Gregori-Azuaje-Cabanerio-spanish.pdf'
+    filepath = BASE_DIR + '/static/' + filename
+    print(BASE_DIR)
+    path = open(filepath, 'rb')
+    mime_type, _ = mimetypes.guess_type(filepath)
+    print(mime_type)
+    response = HttpResponse(path, content_type=mime_type)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response

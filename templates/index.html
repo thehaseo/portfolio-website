@@ -86,6 +86,9 @@
                             which allow me to grow in the field of web development and software development.
                             {% endblock about_info %}
                         </p>
+                        {% block download_cv_button %}
+                            <a href="{% url 'main_page:download_cv' %}?lan=en" class='btn btn-danger text-white'>Download CV</a>
+                        {% endblock download_cv_button %}
                     </div>
                 </div>
             </section>

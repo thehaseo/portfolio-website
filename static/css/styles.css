@@ -76,6 +76,12 @@ h2 {
     background-color: rgb(17, 156, 70);
 }
 
+/* About section */
+
+#cv-button {
+    background-color: gray;
+}
+
 /* Portfolio section */
 .portfolio-grid {
     display: grid;
